@@ -23,7 +23,7 @@ export default function Chat(){
     }, []);
     //The empty dependency array ensures the effect does not re-run when state or props change.
     function connectToWs() {
-        const ws = new WebSocket('ws://localhost:4000');
+        const ws = new WebSocket(import.meta.env.VITE_WS_URL);
         setWs(ws);
         ws.addEventListener('message',handleMessage);
         ws.addEventListener('close' , () => {
